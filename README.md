@@ -9,6 +9,11 @@
   - [With local registry](#with-local-registry)
     - [Publish locally](#publish-locally)
     - [Installing a local package](#installing-a-local-package)
+- [Using the template](#using-the-template)
+  - [Search and replace](#search-and-replace)
+  - [Integrate with CI/CD](#integrate-with-cicd)
+    - [CI](#ci)
+    - [CD](#cd)
 
 ## Setup
 
