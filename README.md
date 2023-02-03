@@ -1,11 +1,11 @@
-# Package Based Monorepo Template
+# SaaS API DLP Node.js Packages
 
 - [Setup](#setup)
 - [Commands](#commands)
   - [Common](#common)
   - [Generating a new package](#generating-a-new-package)
 - [Testing packages locally](#testing-packages-locally)
-  - [With npm workspaces](#with-npm-workspaces)
+  - [With link](#with-link)
   - [With local registry](#with-local-registry)
     - [Publish locally](#publish-locally)
     - [Installing a local package](#installing-a-local-package)
@@ -41,25 +41,15 @@ npm run generate:package <project name>
 
 ## Testing packages locally
 
-### With [npm workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces)
+### With link
 
-In the root [package.json](package.json) we defined the workspaces.
+In the package `dist` folder run `npm link`
 
-Every package `dist` folder is a workspaces. So it is linked once you run `npx nx build <project name>`.
+And then in your consumer run `npm link @%template%@<project>`
 
-You can ensure that the package is linked by searching it in the [node_modules/@%template%](node_modules/@%template%) folder.
+Run `npm unlink` in the package `dist` folder to remove the link.
 
-To use a package that was built, add it as a dependency to the `package.json` with version `*`, for example:
-
-```json
-{
-  "dependencies": {
-    "@%template%/types": "*"
-  }
-}
-```
-
-_Be aware that when you publish and install it, it doesn't necessarily take the local link!_
+Run `nx build <project>` to take changes you make into the consumer.
 
 ### With local registry
 
